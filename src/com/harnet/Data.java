@@ -7,8 +7,9 @@ public class Data {
     public String rndWord; // can't do it private and use a getter
     public String hidedWord; // 'starred guessing word'
 
-    public Data(String rndWord) {
+    public Data(String hidedWord, String rndWord) {
         this.rndWord = this.getRndWord();
+        this.hidedWord = "*".repeat(this.rndWord.length());
     }
 
     public String getHidedWord() {
@@ -22,8 +23,22 @@ public class Data {
     private String getRndWord() {
         Random rand = new Random(); //instance of random class
         String wordForGuess = wordsForGuess[rand.nextInt(wordsForGuess.length)];
-        hidedWord = "*".repeat(wordForGuess.length());
-//        System.out.println(hidedWord);
         return wordForGuess;
     }
+
+    // find indexes of given letters in the word
+    public void getLetInd(String word, char letter){
+        for (int i = -1; (i = word.indexOf(letter, i + 1)) != -1; i++) {
+            starsToLetters(i, letter);
+        }
+    }
+
+    // replace the letter in starred word
+    private void starsToLetters(int ltrInd, char x) {
+        StringBuilder hidedWord = new StringBuilder(this.hidedWord);
+        hidedWord.setCharAt(ltrInd, x);
+
+        this.hidedWord = hidedWord.toString();
+    }
+
 }
