@@ -7,7 +7,7 @@ public class Data {
     public String rndWord; // can't do it private and use a getter
     public String hidedWord; // 'starred guessing word'
 
-    public Data(String hidedWord, String rndWord) {
+    public Data() {
         this.rndWord = this.getRndWord();
         this.hidedWord = "*".repeat(this.rndWord.length());
     }
