@@ -8,7 +8,7 @@ public class Main {
 
         while (attempts > 0) {
             char[] usrLetter = player1.getPlayerLetter();
-            if (usrLetter.length >= 1 && InputValidator.isLetter(usrLetter[0])) {
+            if (InputValidator.isLetter(usrLetter)) {
                 System.out.println(usrLetter);
                 attempts--;
             } else {
