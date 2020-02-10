@@ -24,7 +24,7 @@ public class Player {
         Scanner in = new Scanner(System.in);
         String userLetter = in.nextLine();
         char[] userChar = userLetter.toCharArray();
-//        in.close(); ??? we'll see if it'll be necessary
+//        in.close(); //??? we'll see if it'll be necessary
         return userChar;
     }
 }

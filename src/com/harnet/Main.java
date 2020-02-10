@@ -3,7 +3,12 @@ package com.harnet;
 public class Main {
 
     public static void main(String[] args) {
-        Player player1 = new Player("Adam", 5);
+        Service guessedWord = new Service("");
+        String word = guessedWord.rndWord;
+        System.out.println(word);
+
+        Player player1 = new Player("Adam", word.length());
+
         int attempts = player1.getAttemptsNum();
 
         while (attempts > 0) {
