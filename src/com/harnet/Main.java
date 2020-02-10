@@ -1,7 +1,5 @@
 package com.harnet;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -12,20 +10,20 @@ public class Main {
 
         Player player1 = new Player("Adam", word.length());
 
-        int attempts = player1.getAttemptsNum();
+        int attempts = player1.getAttemptsNum()+2; // give 2 more attempts
         System.out.println("\033[H\033[2J"); // refresh a console
         System.out.println("Give a name of some Codecool's mentor");
         while (attempts > 0) {
             char[] usrLetter = player1.getPlayerLetter();
-            //check if char is in the word
-//            int isExists = word.indexOf(String.valueOf(usrLetter));
-//            System.out.println("Letter in word is: "+isExists);
-//            String letter = Arrays.toString(usrLetter);
 
             if (InputValidator.isLetter(usrLetter)) {
-//                if() {
-                    guessedWord.getLetInd(word, usrLetter[0]);
-//                }
+                boolean isLetterExists =  guessedWord.isLetterExists(word, usrLetter[0]);
+                if(isLetterExists) {
+                    System.out.println("Letter exists");
+                }else{
+                    System.out.println("Letter not exist");
+                }
+
                 System.out.println("\033[H\033[2J"); // refresh a console
                 System.out.println(guessedWord.getHidedWord());
 //                System.out.println(usrLetter);

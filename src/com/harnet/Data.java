@@ -22,15 +22,15 @@ public class Data {
 
     private String getRndWord() {
         Random rand = new Random(); //instance of random class
-        String wordForGuess = wordsForGuess[rand.nextInt(wordsForGuess.length)];
-        return wordForGuess;
+        return wordsForGuess[rand.nextInt(wordsForGuess.length)];
     }
 
     // find indexes of given letters in the word
-    public void getLetInd(String word, char letter){
+    public boolean isLetterExists(String word, char letter){
         for (int i = -1; (i = word.indexOf(letter, i + 1)) != -1; i++) {
             starsToLetters(i, letter);
         }
+        return word.indexOf(letter) > 0;
     }
 
     // replace the letter in starred word
