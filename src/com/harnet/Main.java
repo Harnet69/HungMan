@@ -18,10 +18,17 @@ public class Main {
 
             if (InputValidator.isLetter(usrLetter)) {
                 boolean isLetterExists =  guessedWord.isLetterExists(word, usrLetter[0]);
-                if(isLetterExists) {
-                    System.out.println("Letter exists");
-                }else{
-                    System.out.println("Letter not exist");
+                boolean winCondition = guessedWord.isLetterExists(guessedWord.getHidedWord(), '*');
+//                if(isLetterExists) {
+//                    System.out.println("Letter exists");
+//                }else{
+//                    System.out.println("Letter not exist");
+//                }
+                if(guessedWord.getHidedWord().indexOf('*') < 0) {
+                    System.out.println("\033[H\033[2J"); // refresh a console
+                    System.out.println("YOU WON!!!");
+                    System.out.println("Mentor's name is: " + word);
+                    return;
                 }
 
                 System.out.println("\033[H\033[2J"); // refresh a console
@@ -34,6 +41,6 @@ public class Main {
             }
         }
         System.out.println("GAME OVER! You've been hung");
-        System.out.println("The mentor was: " + word);
+//        System.out.println("The mentor was: " + word);
     }
 }

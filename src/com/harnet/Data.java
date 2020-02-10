@@ -30,7 +30,11 @@ public class Data {
         for (int i = -1; (i = word.indexOf(letter, i + 1)) != -1; i++) {
             starsToLetters(i, letter);
         }
-        return word.indexOf(letter) > 0;
+        if(word.indexOf(letter) > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // replace the letter in starred word
