@@ -1,7 +1,6 @@
 package com.harnet;
 
 public class HungMan {
-
     public static String[] hung = {" +---+\n" +
                    " |   |\n" +
                    " |\n" +

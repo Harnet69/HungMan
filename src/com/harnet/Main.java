@@ -9,9 +9,9 @@ public class Main {
 
         Player player1 = new Player("Daniel");
 
-        int attempts = word.length()+2; // give 2 more attempts
+        int attempts = word.length(); // give 2 more attempts
+        int hungmanStatement = 0;
         System.out.println("\033[H\033[2J"); // refresh a console
-        System.out.println(HungMan.hung[0]);
         System.out.println("Give a name of some Codecool's mentor");
 
         while (attempts > 0) {
@@ -30,15 +30,21 @@ public class Main {
 
                 System.out.println("\033[H\033[2J"); // refresh a console
                 System.out.println(guessedWord.getHidedWord());
-                attempts--;
-                System.out.println("You have " + attempts + " attempts");
+
                 if(!isLetterExists) {
-                    System.out.println(HungMan.hung[attempts/2]);
+                    System.out.println(HungMan.hung[hungmanStatement]);
+                    attempts--;
+                    if(hungmanStatement <= 7) {
+                        hungmanStatement++;
+                    }
+                    System.out.println("You have " + attempts + " attempts");
                 }
             } else {
                 System.out.println("There isn't a letter!");
             }
         }
+
+        System.out.println("\033[H\033[2J");
         System.out.println("GAME OVER! You've been hung");
         System.out.println(HungMan.hung[HungMan.hung.length-1]);
     }
