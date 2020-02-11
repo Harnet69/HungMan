@@ -4,10 +4,8 @@ import java.util.Scanner;
 
 public class Player {
     private String name;
-    private int attemptsNum;
 
-    public Player(String name, int attemptsNum) {
-        this.attemptsNum = attemptsNum;
+    public Player(String name) {
         this.name = name;
     }
 
@@ -15,9 +13,6 @@ public class Player {
         return name;
     }
 
-    public int getAttemptsNum() {
-        return attemptsNum;
-    }
 
     public char[] getPlayerLetter() {
         System.out.print("Give a suggested letter: ");
